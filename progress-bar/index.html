@@ -5,21 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>progresbartest</title>
   <style>
+    body {
+      background-color: #f3f3f3;
+    }
     #a {
-      height: 20px;
-      width: 250px;
-      background-color: black;
+      height: 100px;
+      width: 500px;
+      background-color: #3f3f3f;
     }
     #p {
-      height: 20px;
-      background-color: #ff3;
-      width: 29%;
+      height: 100px;
+      background-color: #f54251;
+      width: 70%;
     }
   </style>
 </head>
 <body>
   <div id="a">
-    <div id='p'></div>
+    <div id="p"></div>
   </div>
+  <script>
+    const slider = document.querySelector('#a');
+
+    slider.addEventListener("click", (e) => {
+      const rect = slider.getBoundingClientRect();
+      const leftX = rect.left + window.scrollX;
+      const rightX = rect.right + window.scrollX;
+      const num = e.pageX/rightX*100;
+
+      document.querySelector('#p').style["width"] = `${num}%`
+      console.log(Math.round(num));
+    });
+  </script>
 </body>
 </html>
