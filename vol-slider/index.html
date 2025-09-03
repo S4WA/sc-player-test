@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>vol-slider test</title>
+</head>
+<body>
+  <input type="range" value="4" min="0" max="10" step="1">
+  <span id='kanker'></span>
+  <script>
+    const range = document.querySelector("input[type='range']"), txtMsg = document.querySelector("#kanker");
+
+    range.oldNum = range.value;
+    range.addEventListener('change', function (e) {
+      const val = Number(e.target.value);
+      
+      // console.log(`val: ${val} | oldNum: ${range.oldNum}`)
+      range.gap = val - range.oldNum;
+      range.oldNum = val;
+      // console.log(`gap: ${range.gap}`)
+
+      let count = Math.abs(range.gap);
+      while (count > 0) {
+        // do your thing
+        --count;
+      }
+    });
+  </script>
+</body>
+</html>
