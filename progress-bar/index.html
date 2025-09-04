@@ -25,15 +25,15 @@
     <div id="p"></div>
   </div>
   <script>
-    const slider = document.querySelector('#a');
+    const bg = document.querySelector('#a'), bar = document.querySelector('#p');
 
-    slider.addEventListener("click", (e) => {
-      const rect = slider.getBoundingClientRect();
+    bg.addEventListener("click", (e) => {
+      const rect = bg.getBoundingClientRect();
       const leftX = rect.left + window.scrollX;
       const rightX = rect.right + window.scrollX;
       const num = e.pageX/rightX*100;
 
-      document.querySelector('#p').style["width"] = `${num}%`
+      bar.style["width"] = `${num}%`;
       console.log(Math.round(num));
     });
   </script>
